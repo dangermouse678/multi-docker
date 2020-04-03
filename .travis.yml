@@ -10,10 +10,8 @@ after_success:
   - docker build -t dangermouse678/multi-nginx ./nginx
   - docker build -t dangermouse678/multi-server ./server
   - docker build -t dangermouse678/multi-worker ./worker
-# Log in to Docker CLI
-- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-# Take those images and push them to Docker Hub
-- docker push dangermouse678/multi-client
-- docker push dangermouse678/multi-nginx
-- docker push dangermouse678/multi-server
-- docker push dangermouse678/multi-worker
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push dangermouse678/multi-client
+  - docker push dangermouse678/multi-nginx
+  - docker push dangermouse678/multi-server
+  - docker push dangermouse678/multi-worker
