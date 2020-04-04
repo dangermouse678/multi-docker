@@ -15,3 +15,15 @@ after_success:
   - docker push dangermouse678/multi-nginx
   - docker push dangermouse678/multi-server
   - docker push dangermouse678/multi-worker
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: multi-docker
+  env: MultiDocker-env
+  bucket_name: elasticbeanstalk-us-east-2-020216992354
+  bucket_path: docker-multi
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
